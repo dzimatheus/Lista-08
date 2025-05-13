@@ -1,0 +1,55 @@
+1) A) Ao executar o erro foi, triangulo.estilo não está visivel, ou seja, não é possivel acessalo.
+Para resolver: Declarei o atributo estilo como protected, na classe triangulo.
+
+B) public class Retangulo extends TwoDShape {
+    private boolean verdadeiro;
+
+    public boolean quadrado(){
+        if(largura == altura)
+            return verdadeiro;
+        else
+            return !verdadeiro;
+    }
+    public double area(){
+        return largura * altura;
+    }
+}
+
+C) As outras subclasses não conseguiram acessar a superclasse, pois quando declara-se private ninguém pode acessar esses "dados", ou seja, 
+os atributos são acessados somente pela sua propria classe.
+Para resolver: criei um construtor na classe TwoDShape e adicionei get e set, depois modifiquei nas classes triangulo, retangulo e Shapes, com o get conseguindo acessar os atributos.
+outro modo de resolver era declaras os atributos da superclasse como protected.
+public class Retangulo extends TwoDShape {
+    private boolean verdadeiro;
+
+    public Retangulo(double largura, double altura) {
+        super(largura, altura);
+        this.verdadeiro = true;
+    }
+
+    public boolean quadrado(){
+        if(getLargura() == getAltura())
+            return verdadeiro;
+        else
+            return !verdadeiro;
+    }
+    public double area(){
+        return getLargura() * getAltura();
+    }
+}
+
+public class Triangulo extends TwoDShape {
+    protected String estilo;
+
+    public Triangulo(String estilo, double largura, double altura){
+        super(largura, altura);
+        this.estilo = estilo;
+    }
+
+    public double area() {
+        return (getLargura() * getAltura()) / 2;
+    }
+    public void mostraEstilo() {
+        System.out.println("Triangulo = " + estilo);
+    }
+}
