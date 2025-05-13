@@ -17,7 +17,8 @@ B) public class Retangulo extends TwoDShape {
 
 C) As outras subclasses não conseguiram acessar a superclasse, pois quando declara-se private ninguém pode acessar esses "dados", ou seja, 
 os atributos são acessados somente pela sua propria classe.
-Para resolver: criei um construtor na classe TwoDShape e adicionei get e set, depois modifiquei nas classes triangulo, retangulo e Shapes, com o get conseguindo acessar os atributos.
+
+D) Para resolver: criei um construtor na classe TwoDShape e adicionei get, depois modifiquei nas classes triangulo, retangulo e Shapes, com o get conseguindo acessar os atributos.
 outro modo de resolver era declaras os atributos da superclasse como protected.
 public class Retangulo extends TwoDShape {
     private boolean verdadeiro;
