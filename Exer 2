@@ -1,0 +1,60 @@
+public class Produto {
+    protected String nome;
+    protected double preco;
+    public Produto(String nome, double preco){
+        this.nome = nome;
+        this.preco = preco;
+    }
+    public boolean ehCaro(){
+        return preco > 50;
+    }
+}
+
+
+
+public class Livro extends Produto {
+    private String autor;
+    private int paginas;
+    public Livro(String nome, double preco, String autor, int paginas){
+        super(nome, preco);
+        this.autor = autor;
+        this.paginas = paginas;
+    }
+    public boolean ehExtenso(){
+        return paginas > 100;
+    }
+    @Override
+    public boolean ehCaro(){
+        return preco > 60;
+    }
+    public void mostrarInfo() {
+    System.out.println("Livro: " + nome + " Autor: "+ autor + " Preco: " + preco + " Paginas: " + paginas + " Foi pago.");
+    }
+    public void mostrarInfo(boolean pagou){
+        System.out.println("Livro: " + nome + " Preco: " + preco);
+        if(pagou){
+            System.out.println("Foi pago.");
+        }else{
+            System.out.println("Nao foi pago.");
+        }
+    }
+}
+
+
+
+public class ProdutoApp {
+    public static void main(String[] args) {
+        Produto p1 = new Produto("Caderno", 25.50);
+        Produto p2 = new Produto("Caderno Maior", 75.50);
+        Livro l1 = new Livro("POO Java", 63.0,"Matheus Dz.B",93);
+        Livro l2 = new Livro("Calculo II", 27.50, "", 763);
+        System.out.println("O produto 1 e caro? " + p1.ehCaro() + " Livro 1 e caro? " + l1.ehCaro());
+        System.out.println("O produto 2 e caro? " + p2.ehCaro() + " Livro 2 e caro? " + l2.ehCaro());
+        System.out.println("O livro 1 e extenso? " + l1.ehExtenso());
+        System.out.println("O livro 2 e extenso? " + l2.ehExtenso());
+        l1.mostrarInfo();
+        l2.mostrarInfo();
+        l1.mostrarInfo(true);
+        l2.mostrarInfo(false);
+    }
+}
