@@ -1,0 +1,15 @@
+Exercicio 3;
+Saída:
+Computador()
+Notebook()
+Codigo: 12345
+
+Em hierarquia de classe, o construtor da superclasse é executado primeiro, depois o construtor da subclasse, nesse caso, depois codigo recebe 12345 e exibe a função ligar.
+
+Exercicio 4;
+Saída:
+x: 8
+x: 12
+
+O atributo i é definido como private para ser "Protegido", poís assim, niguém pode acessá-lo, somente sua classe.
+O método ajustar é definido como protected permitindo que a subclasse podossa acessar e modificar o valor de i.
